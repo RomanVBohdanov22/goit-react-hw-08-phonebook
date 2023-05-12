@@ -4,6 +4,7 @@ import { addFilter } from 'redux/filterSlice';
 
 const FilterContacts = () => {
   const dispatch = useDispatch();
+  //
   return (
     <label htmlFor="search">
       <span className="pseudo">
