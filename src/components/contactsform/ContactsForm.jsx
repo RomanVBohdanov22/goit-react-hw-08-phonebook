@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
 import '../contactsform/ContactsForm.css';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { selectContacts } from 'redux/selectors';
+import Notiflix from 'notiflix';
+import { addContact } from 'redux/contactsSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
-export const ContactForm = ({ onFormSubmit }) => {
+export const ContactForm = () => {
+  const contacts = useSelector(selectContacts);
+  const dispatch = useDispatch();
   const [value, setValue] = useState({
     name: '',
     number: '',
@@ -16,8 +21,15 @@ export const ContactForm = ({ onFormSubmit }) => {
 
   const clearFormFields = e => {
     e.preventDefault();
-    onFormSubmit(value);
 
+    const isExist = contacts.some(
+      contact => contact.name === value.name || contact.number === value.number
+    );
+    if (isExist) {
+      Notiflix.Notify.failure('This contact is already exists');
+      return;
+    }
+    dispatch(addContact({ ...value, id: nanoid() }));
     setValue({ name: '', number: '' });
   };
   //
@@ -54,7 +66,3 @@ export const ContactForm = ({ onFormSubmit }) => {
 };
 
 export default ContactForm;
-ContactForm.propTypes = {
-  //contacts: PropTypes.array.isRequired,
-  onFormSubmit: PropTypes.func.isRequired,
-};
