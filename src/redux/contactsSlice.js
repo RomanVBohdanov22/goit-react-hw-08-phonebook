@@ -5,6 +5,17 @@ const contactsSlice = createSlice({
   name: 'contacts',
   // Початковий стан редюсера слайсу
   initialState: { items: [] },
+  /*
+  {
+  contacts: {
+    items: [],
+    isLoading: false,
+    error: null
+  },
+  filter: ""
+}
+*/
+
   // Об'єкт редюсерів
   reducers: {
     addContact(state, action) {
