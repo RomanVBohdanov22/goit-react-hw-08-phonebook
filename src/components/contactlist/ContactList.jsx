@@ -18,7 +18,7 @@ const ContactList = () => {
             <p>{name}</p>
             <p>{number}</p>
             <button type="button" onClick={() => dispatch(deleteContact(id))}>
-              {'//dispatch Remove contact '}
+              {'Remove contact'}
             </button>
           </li>
         );
