@@ -51,14 +51,3 @@ const contactsSlice = createSlice({
 
 // Редюсер слайсу
 export const contactsReducer = contactsSlice.reducer;
-
-/*
-  {
-  contacts: {
-    items: [],
-    isLoading: false,
-    error: null
-  },
-  filter: ""
-}
-*/

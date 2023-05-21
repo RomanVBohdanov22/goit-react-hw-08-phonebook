@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { selectContacts } from 'redux/selectors';
 import Notiflix from 'notiflix';
 import { addContact } from 'redux/operations';
-import { nanoid } from '@reduxjs/toolkit';
+//import { nanoid } from '@reduxjs/toolkit';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -29,7 +29,7 @@ export const ContactForm = () => {
       Notiflix.Notify.failure('This contact is already exists');
       return;
     }
-    dispatch(addContact({ ...value, id: nanoid() }));
+    dispatch(addContact({ ...value })); //, id: nanoid()
     setValue({ name: '', number: '' });
   };
   //
