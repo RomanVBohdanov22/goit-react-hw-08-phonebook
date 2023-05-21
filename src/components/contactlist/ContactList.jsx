@@ -1,7 +1,7 @@
 import '../contactlist/ContactList.css';
 import { useSelector, useDispatch } from 'react-redux'; //useDispatch
 import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -18,8 +18,7 @@ const ContactList = () => {
             <p>{name}</p>
             <p>{number}</p>
             <button type="button" onClick={() => dispatch(deleteContact(id))}>
-              {' '}
-              //dispatch Remove contact
+              {'//dispatch Remove contact '}
             </button>
           </li>
         );
