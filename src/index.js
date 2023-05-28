@@ -1,3 +1,4 @@
+//import { Route, Routes, Navigate } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
@@ -7,6 +8,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 // 1. import `ChakraProvider` component
 import { extendTheme, ChakraProvider } from '@chakra-ui/react';
+/*
+ */
 const colors = {
   brand: {
     900: '#1a365d',
