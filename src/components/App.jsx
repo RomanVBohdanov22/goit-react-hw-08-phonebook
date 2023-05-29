@@ -1,3 +1,4 @@
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectError, selectLoading, selectContacts } from 'redux/selectors';
@@ -6,6 +7,8 @@ import ContactForm from './contactsform';
 import ContactList from './contactlist';
 import FilterContacts from './filter';
 import Title from './title';
+
+import { routes } from '../routes';
 
 function getRandomHexColor() {
   return `#${Math.floor((0.2 + 0.5 * Math.random()) * 16777215).toString(16)}`;
