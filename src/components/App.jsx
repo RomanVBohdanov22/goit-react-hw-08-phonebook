@@ -1,14 +1,14 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { selectError, selectLoading, selectContacts } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-import ContactForm from './contactsform';
-import ContactList from './contactlist';
-import FilterContacts from './filter';
-import Title from './title';
+import { Route, Routes } from 'react-router-dom';
 
 import { routes } from '../routes';
+import Home from 'pages/Home/Home';
+import Contacts from 'pages/Contacts/Contacts';
+import Registration from 'pages/Registration/Registration';
+import Login from 'pages/Login/Login';
+import { Layout } from './Layout/Layout';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/operations';
 
 function getRandomHexColor() {
   return `#${Math.floor((0.2 + 0.5 * Math.random()) * 16777215).toString(16)}`;
@@ -25,27 +25,22 @@ const appStyles = {
   color: '#010101',
 };
 export const App = () => {
-  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoading);
-  const isError = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
     <div style={{ ...appStyles, backgroundColor: getRandomHexColor() }}>
-      <div>
-        <Title title={'Phonebook'} />
-        {isLoading && <p>Loading...</p>}
-        {isError && <p>{isError}</p>}
-        {contacts.length === 0 && <p>There are no any contacts ... </p>}
-        <ContactForm />
-        <Title title={'Contacts'} />
-        <FilterContacts />
-        <ContactList />
-      </div>
+      <Routes>
+        <Route path={routes.HOME} element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path={routes.CONTACTS} element={<Contacts />} />
+          <Route path={routes.REGISTER} element={<Registration />} />
+          <Route path={routes.LOGIN} element={<Login />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
