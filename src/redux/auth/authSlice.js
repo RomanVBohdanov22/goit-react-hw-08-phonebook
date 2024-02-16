@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { login, logout, refreshUser, register } from './operations';
+/*
+//https://redux-toolkit.js.org/api/createSlice
+import { buildCreateSlice, asyncThunkCreator } from '@reduxjs/toolkit'
 
+export const createAppSlice = buildCreateSlice({
+  creators: { asyncThunk: asyncThunkCreator },
+})
+*/
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
