@@ -12,6 +12,7 @@ import Authbar from 'components/Authbar/Authbar';
 export const Layout = () => {
   const isLoggedIn = useSelector(selectLoggedIn);
   const isAuth = useSelector(selectAuth);
+  console.log(isAuth);
   return (
     <>
       <ul>
