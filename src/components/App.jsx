@@ -14,7 +14,7 @@ function getRandomHexColor() {
   return `#${Math.floor((0.2 + 0.5 * Math.random()) * 16777215).toString(16)}`;
 }
 
-const appStyles = {
+export const appStyles = {
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
