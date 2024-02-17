@@ -7,9 +7,13 @@ const Userbar = () => {
   const user = useSelector(selectAuth);
   const dispatch = useDispatch();
   return (
-    <div>
+    <div style={{ backgroundColor: '#1c7f51' }}>
       {user && <p>{user.email}</p>}
-      <button type="button" onClick={() => dispatch(logout())}>
+      <button
+        type="button"
+        style={{ backgroundColor: '#7e1b8f' }}
+        onClick={() => dispatch(logout())}
+      >
         Logout
       </button>
     </div>
