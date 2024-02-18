@@ -3,7 +3,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <Flex height="20vh" alignItems="center" direction="column">
+    <Flex height="20vh" alignItems="center" justifyContent="center">
       Home
     </Flex>
   );

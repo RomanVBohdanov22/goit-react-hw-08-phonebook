@@ -38,7 +38,12 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Flex height="100vh" alignItems="stretch" justifyContent="center">
+    <Flex
+      height="100vh"
+      alignItems="center"
+      justifyContent="center"
+      background="#7f721c"
+    >
       {!isRefreshing && (
         <div style={{ ...appStyles, backgroundColor: getRandomHexColor() }}>
           <Routes>

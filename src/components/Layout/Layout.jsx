@@ -16,26 +16,28 @@ export const Layout = () => {
   const isAuth = useSelector(selectAuth);
   console.log(isAuth);
   return (
-    <Flex alignItems="center" justifyContent="center" direction="column">
-      <ul
-        style={{
-          ...appStyles,
-          border: '1px solid #2a2a2a',
-          padding: '8px 12px',
-          backgroundColor: '#3f51b5',
-        }}
-      >
-        <li>
-          <Link to={routes.HOME}>Home</Link>
-        </li>
-        {isLoggedIn && (
+    <Flex height="20vh" alignItems="center" justifyContent="center">
+      <Flex direction="column">
+        <ul
+          style={{
+            ...appStyles,
+            border: '1px solid #2a2a2a',
+            padding: '8px 12px',
+            backgroundColor: '#3f51b5',
+          }}
+        >
           <li>
-            <Link to={routes.CONTACTS}>Contact</Link>
+            <Link to={routes.HOME}>Home</Link>
           </li>
-        )}
-      </ul>
-      {isLoggedIn ? <Userbar /> : <Authbar />}
-      <Outlet />
+          {isLoggedIn && (
+            <li>
+              <Link to={routes.CONTACTS}>Contact</Link>
+            </li>
+          )}
+        </ul>
+        {isLoggedIn ? <Userbar /> : <Authbar />}
+        <Outlet />
+      </Flex>
     </Flex>
   );
 };
