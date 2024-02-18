@@ -10,6 +10,10 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 
+import RestrictedRoute from './RestrictedRoute';
+import PrivateRoute from './PrivateRoute';
+import { useAuth } from 'hooks';
+
 function getRandomHexColor() {
   return `#${Math.floor((0.2 + 0.5 * Math.random()) * 16777215).toString(16)}`;
 }
@@ -25,6 +29,7 @@ export const appStyles = {
   color: '#010101',
 };
 export const App = () => {
+  const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,30 +37,70 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div style={{ ...appStyles, backgroundColor: getRandomHexColor() }}>
-      <Routes>
-        <Route path={routes.HOME} element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path={routes.CONTACTS} element={<Contacts />} />
-          <Route path={routes.REGISTER} element={<Registration />} />
-          <Route path={routes.LOGIN} element={<Login />} />
-        </Route>
-      </Routes>
-    </div>
+    <>
+      {!isRefreshing && (
+        <div style={{ ...appStyles, backgroundColor: getRandomHexColor() }}>
+          <Routes>
+            <Route path={routes.HOME} element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route
+                path={routes.REGISTER}
+                element={
+                  <RestrictedRoute
+                    redirectTo="/contacts"
+                    component={<Registration />}
+                  />
+                }
+              />
+              <Route
+                path={routes.LOGIN}
+                element={
+                  <RestrictedRoute
+                    redirectTo="/contacts"
+                    component={<Login />}
+                  />
+                }
+              />
+              <Route
+                path={routes.CONTACTS}
+                element={
+                  <PrivateRoute redirectTo="/login" component={<Contacts />} />
+                }
+              />
+            </Route>
+          </Routes>
+        </div>
+      )}
+    </>
   );
 };
 
-/*
-import { Routes, Route } from 'react-router-dom';
-import { PrivateRoute, RestrictedRoute } from './components'; // assuming you have these components
-
-<Routes>
-  <RestrictedRoute path={routes.REGISTER} element={<Registration />} />
-  <RestrictedRoute path={routes.LOGIN} element={<Login />} />
-  <Route path={routes.HOME} element={<Layout />}>
-    <Route index element={<Home />} />
-    <PrivateRoute path={routes.CONTACTS} element={<Contacts />} />
-  </Route>
-</Routes>
-
+/**
+  return (
+        <>
+            {!isRefreshing && (
+                <Routes>
+                    <Route path="/" element={<SharedLayout />}>
+                        <Route index element={<HomePage />} />
+                        <Route
+                            path="register"
+                            element={
+                                <RestrictedRoute
+                                    redirectTo="/contacts"
+                                    component={<RegisterPage />}
+                                />
+                            }
+                        />
+                        <Route
+                            path="login"
+                            element={
+                                <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+                            }
+                        />
+                        <Route path="contacts" element={<PrivateRoute redirectTo="/login" component={<ContactsPage />} />} />
+                    </Route>
+                </Routes>
+            )}
+        </>
+    );
  */
