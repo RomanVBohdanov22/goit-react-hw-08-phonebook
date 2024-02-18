@@ -16,16 +16,21 @@ export const Layout = () => {
   const isAuth = useSelector(selectAuth);
   console.log(isAuth);
   return (
-    <Flex height="20vh" justifyContent="center">
-      <Flex direction="column">
-        <ul
-          style={{
-            ...appStyles,
-            border: '1px solid #2a2a2a',
-            padding: '8px 12px',
-            backgroundColor: '#3f51b5',
-          }}
-        >
+    <Flex
+      height="20vh"
+      width="800px"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Flex
+        direction="column"
+        alignItems="center"
+        background="#3f51b5"
+        border="1px solid #2a2a2a"
+        borderRadius="6"
+        gap="12px"
+      >
+        <ul>
           <li>
             <Link to={routes.HOME}>Home</Link>
           </li>

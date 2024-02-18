@@ -26,7 +26,12 @@ const Registration = () => {
     );
   };
   return (
-    <Flex height="20vh" alignItems="center" justifyContent="center">
+    <Flex
+      height="20vh"
+      width="320px"
+      alignItems="center"
+      justifyContent="center"
+    >
       <Flex direction="column" background="#1c7f51" p={12} rounded={6}>
         <form onSubmit={handleSubmit}>
           <label htmlFor="registerName">Name: </label>
