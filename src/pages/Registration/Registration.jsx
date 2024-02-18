@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-
+import { Flex } from '@chakra-ui/react'; //Center,
 const Registration = () => {
   const [value, setValue] = useState({
     registerName: '',
@@ -26,38 +26,45 @@ const Registration = () => {
     );
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="registerName">Name</label>
-        <input
-          id="registerName"
-          type="text"
-          name="registerName"
-          onChange={handleChange}
-          value={value.registerName}
-          required
-        />
-        <label htmlFor="registerMail">Email</label>
-        <input
-          id="registerMail"
-          type="email"
-          name="registerMail"
-          onChange={handleChange}
-          value={value.registerMail}
-          required
-        />
-        <label htmlFor="registerPassword">Password</label>
-        <input
-          id="registerPassword"
-          type="password"
-          name="registerPassword"
-          onChange={handleChange}
-          value={value.registerPassword}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <Flex height="20vh" alignItems="center" justifyContent="center">
+      <Flex direction="column" background="#1c7f51" p={12} rounded={6}>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="registerName">Name: </label>
+          <input
+            id="registerName"
+            type="text"
+            name="registerName"
+            onChange={handleChange}
+            value={value.registerName}
+            required
+          />
+          <label htmlFor="registerMail"> Email: </label>
+          <input
+            id="registerMail"
+            type="email"
+            name="registerMail"
+            onChange={handleChange}
+            value={value.registerMail}
+            required
+          />
+          <label htmlFor="registerPassword"> Password: </label>
+          <input
+            id="registerPassword"
+            type="password"
+            name="registerPassword"
+            onChange={handleChange}
+            value={value.registerPassword}
+            required
+          />{' '}
+          <button
+            type="submit"
+            style={{ backgroundColor: '#7e1b8f', borderRadius: 6, padding: 4 }}
+          >
+            Sign Up
+          </button>
+        </form>
+      </Flex>
+    </Flex>
   );
 };
 

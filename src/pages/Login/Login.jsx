@@ -47,7 +47,7 @@ const Login = () => {
           />{' '}
           <button
             type="submit"
-            style={{ backgroundColor: '#7e1b8f', borderRadius: 6, padding: 4 }}
+            style={{ backgroundColor: '#7e1b8f', borderRadius: 6, padding: 6 }}
           >
             Sign In
           </button>
