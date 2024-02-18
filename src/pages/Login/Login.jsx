@@ -50,35 +50,3 @@ const Login = () => {
 };
 
 export default Login;
-/*
-<form onSubmit={handleSubmit}>
-        <label htmlFor="registerName">Name</label>
-        <input
-          id="registerName"
-          type="text"
-          name="registerName"
-          onChange={handleChange}
-          value={value.registerName}
-          required
-        />
-        <label htmlFor="registerMail">Email</label>
-        <input
-          id="registerMail"
-          type="email"
-          name="registerMail"
-          onChange={handleChange}
-          value={value.registerMail}
-          required
-        />
-        <label htmlFor="registerPassword">Password</label>
-        <input
-          id="registerPassword"
-          type="password"
-          name="registerPassword"
-          onChange={handleChange}
-          value={value.registerPassword}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-*/
