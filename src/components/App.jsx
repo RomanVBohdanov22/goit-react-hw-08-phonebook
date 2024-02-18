@@ -44,3 +44,18 @@ export const App = () => {
     </div>
   );
 };
+
+/*
+import { Routes, Route } from 'react-router-dom';
+import { PrivateRoute, RestrictedRoute } from './components'; // assuming you have these components
+
+<Routes>
+  <RestrictedRoute path={routes.REGISTER} element={<Registration />} />
+  <RestrictedRoute path={routes.LOGIN} element={<Login />} />
+  <Route path={routes.HOME} element={<Layout />}>
+    <Route index element={<Home />} />
+    <PrivateRoute path={routes.CONTACTS} element={<Contacts />} />
+  </Route>
+</Routes>
+
+ */
