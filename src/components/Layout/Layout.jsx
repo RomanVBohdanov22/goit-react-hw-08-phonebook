@@ -9,13 +9,14 @@ export const selectAuth = state => state.auth.user;
 import { selectLoggedIn, selectAuth } from 'redux/auth/selectors';
 import Userbar from 'components/Userbar/Userbar';
 import Authbar from 'components/Authbar/Authbar';
+import { Flex } from '@chakra-ui/react';
 
 export const Layout = () => {
   const isLoggedIn = useSelector(selectLoggedIn);
   const isAuth = useSelector(selectAuth);
   console.log(isAuth);
   return (
-    <>
+    <Flex alignItems="center" justifyContent="center" direction="column">
       <ul
         style={{
           ...appStyles,
@@ -35,6 +36,6 @@ export const Layout = () => {
       </ul>
       {isLoggedIn ? <Userbar /> : <Authbar />}
       <Outlet />
-    </>
+    </Flex>
   );
 };

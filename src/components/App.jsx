@@ -13,6 +13,7 @@ import { refreshUser } from 'redux/auth/operations';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import { useAuth } from 'hooks';
+import { Flex } from '@chakra-ui/react';
 
 function getRandomHexColor() {
   return `#${Math.floor((0.2 + 0.5 * Math.random()) * 16777215).toString(16)}`;
@@ -37,7 +38,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Flex height="100vh" alignItems="stretch" justifyContent="center">
       {!isRefreshing && (
         <div style={{ ...appStyles, backgroundColor: getRandomHexColor() }}>
           <Routes>
@@ -71,6 +72,6 @@ export const App = () => {
           </Routes>
         </div>
       )}
-    </>
+    </Flex>
   );
 };
