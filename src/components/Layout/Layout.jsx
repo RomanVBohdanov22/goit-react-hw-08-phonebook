@@ -16,7 +16,7 @@ export const Layout = () => {
   const isAuth = useSelector(selectAuth);
   console.log(isAuth);
   return (
-    <Flex height="20vh" alignItems="center" justifyContent="center">
+    <Flex height="20vh" justifyContent="center">
       <Flex direction="column">
         <ul
           style={{

@@ -6,12 +6,14 @@ import { routes } from 'routes';
 const Authbar = () => {
   return (
     <Flex height="20vh" alignItems="center" justifyContent="center">
-      <li>
-        <Link to={routes.REGISTER}>Register</Link>
-      </li>
-      <li>
-        <Link to={routes.LOGIN}>Login</Link>
-      </li>
+      <Flex direction="column">
+        <li>
+          <Link to={routes.REGISTER}>Register</Link>
+        </li>
+        <li>
+          <Link to={routes.LOGIN}>Login</Link>
+        </li>
+      </Flex>
     </Flex>
   );
 };
