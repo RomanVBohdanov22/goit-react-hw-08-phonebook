@@ -35,7 +35,7 @@ export const ContactForm = () => {
     setValue({ name: '', number: '' });
   };
   //
-
+  // "^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
   return (
     <form onSubmit={clearFormFields} className="contactForm">
       <label htmlFor="name">Name</label>
@@ -43,7 +43,7 @@ export const ContactForm = () => {
         className="ContactInput"
         type="text"
         name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        pattern="^[a-zA-Zа-яА-ЯёЁіІїЇ]+(([' \-][a-zA-Zа-яА-ЯёЁіІїЇ])?[a-zA-Zа-яА-ЯёЁіІїЇ]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         onChange={handleChange}
         value={value.name}
