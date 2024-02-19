@@ -13,8 +13,9 @@ import { Flex } from '@chakra-ui/react';
 
 export const Layout = () => {
   const isLoggedIn = useSelector(selectLoggedIn);
-  const isAuth = useSelector(selectAuth);
-  console.log(isAuth);
+  const { name } = useSelector(selectAuth); //, email
+  //console.log(isAuth);
+  //console.log(name, email);
   return (
     <Flex
       height="20vh"
@@ -30,6 +31,7 @@ export const Layout = () => {
         borderRadius="6"
         gap="12px"
       >
+        <p style={{ background: '#b5843f' }}>{name}</p>
         <ul>
           <li>
             <Link to={routes.HOME}>Home</Link>
